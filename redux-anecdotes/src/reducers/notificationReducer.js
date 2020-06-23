@@ -9,10 +9,18 @@ export const notify = (content) => {
   }
 }
 
+export const removeNotification = (content) => {
+  return {
+    type: 'REMOVE'
+  }
+}
+
 const notificationReducer = (state = initialState, action) => {
   switch(action.type) {
     case 'NOTIFY':
-      return action.data.message
+      return `You voted on '${action.data.message}'`
+    case 'REMOVE':
+      return null
     default:
       return state
   }

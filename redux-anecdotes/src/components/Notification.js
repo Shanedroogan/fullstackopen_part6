@@ -9,6 +9,8 @@ const Notification = () => {
     borderWidth: 1
   }
   return (
+    notification === null ?
+    <div style={{padding: 20}}></div> :
     <div style={style}>
       {notification}
     </div>

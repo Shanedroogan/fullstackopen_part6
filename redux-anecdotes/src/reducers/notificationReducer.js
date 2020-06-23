@@ -1,5 +1,3 @@
-const initialState = 'Testing Notification'
-
 export const notify = (content) => {
   return {
     type: 'NOTIFY',
@@ -15,7 +13,7 @@ export const removeNotification = (content) => {
   }
 }
 
-const notificationReducer = (state = initialState, action) => {
+const notificationReducer = (state = null, action) => {
   switch(action.type) {
     case 'NOTIFY':
       return `You voted on '${action.data.message}'`

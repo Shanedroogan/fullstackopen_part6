@@ -6,7 +6,6 @@ import { notify, removeNotification } from '../reducers/notificationReducer'
 const AnecdoteList = (props) => {
   const dispatch = useDispatch()
   const filter = useSelector(state => state.filter)
-  console.log(filter)
   const anecdotes = useSelector(state => {
     return state.anecdotes
         .filter(a => a.content.toLowerCase().includes(filter.toLowerCase()))
@@ -15,7 +14,7 @@ const AnecdoteList = (props) => {
   console.log(anecdotes)
 
   const voteOn = (anecdote) => {
-    dispatch(vote(anecdote.id))
+    dispatch(vote(anecdote))
     dispatch(notify(anecdote.content))
 
     setTimeout(() => {

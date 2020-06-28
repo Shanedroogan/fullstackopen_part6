@@ -10,7 +10,6 @@ export const filter = (content) => {
 const filterReducer = (state = '', action) => {
   switch(action.type) {
     case 'FILTER':
-      // return state.filter(a => a.content.toLowerCase().includes(action.data.key.toLowerCase()))
       return action.data.key
     default:
       return state

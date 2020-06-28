@@ -1,14 +1,16 @@
-export const notify = (content, time) => {
+export const notify = (content, time, prevTimeout) => {
   return async dispatch => {
+    clearTimeout(prevTimeout)
+    const timeoutId = setTimeout(() => {
+      dispatch(removeNotification())
+    }, time*1000)
     dispatch({
       type: 'NOTIFY',
       data: {
         message: content
       }
     })
-    setTimeout(() => {
-      dispatch(removeNotification())
-    }, time*1000)
+    return timeoutId
   }
 }
 
